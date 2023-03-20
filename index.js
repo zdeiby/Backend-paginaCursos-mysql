@@ -2,7 +2,7 @@ require('dotenv').config();
 const mysql = require('mysql');
 const express = require('express');
 const cors = require('cors')
-
+app=express()
 const corsOptions = {
   origin: 'https://pruebas-react.castelancarpinteyro.com'
 };
@@ -33,7 +33,7 @@ connection.connect((err) => {
 });
 
 
-app=express()
+
 //ESTOS DOS SE necesitan para poder leer el req.body y el req.params
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
