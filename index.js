@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors')
 
 const corsOptions = {
-  origin: 'https://castelancarpinteyro.com'
+  origin: 'https://pruebas-react.castelancarpinteyro.com'
 };
 
 app.use(cors(corsOptions));
