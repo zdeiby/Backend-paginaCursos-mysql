@@ -1,6 +1,13 @@
 require('dotenv').config();
 const mysql = require('mysql');
 const express = require('express');
+const cors = require('cors')
+
+const corsOptions = {
+  origin: 'https://mi-dominio.com'
+};
+
+app.use(cors(corsOptions));
 
 const dbHost = process.env.DB_HOST;
 const dbUser=process.env.DB_USER;
