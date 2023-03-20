@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors')
 
 const corsOptions = {
-  origin: 'https://mi-dominio.com'
+  origin: 'https://castelancarpinteyro.com'
 };
 
 app.use(cors(corsOptions));
