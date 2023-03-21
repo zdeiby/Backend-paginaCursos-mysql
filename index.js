@@ -8,7 +8,11 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // Permite el acceso desde cualquier origen
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 const dbHost = process.env.DB_HOST;
 const dbUser=process.env.DB_USER;
