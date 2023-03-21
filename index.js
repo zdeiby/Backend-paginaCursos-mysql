@@ -5,6 +5,18 @@ const cors = require('cors')
 
 const app=express();
 const port = process.env.PORT || 3000;
+const whitelist = ['file:///C:/Users/deiby/Desktop/temp/conectionmysql/index.html'];
+const options ={
+  origin: (origin, callback) =>{
+    if(whitelist.includes(origin) || !origin){
+      callback(null, true);
+
+    }else{
+      callback(new Error('no permitido'))
+    }
+  }
+}
+app.use(cors());
 app.use(cors());
 
 const dbHost = process.env.DB_HOST;
