@@ -3,11 +3,10 @@ const mysql = require('mysql');
 const express = require('express');
 const cors = require('cors')
 app=express()
-const corsOptions = {
-  origin: 'https://pruebas-react.castelancarpinteyro.com'
-};
+app.use(cors());
 
-app.use(cors(corsOptions));
+const port = process.env.PORT || 3000;
+
 
 const dbHost = process.env.DB_HOST;
 const dbUser=process.env.DB_USER;
@@ -39,7 +38,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/users', (req,res)=>{
-  res.header('Access-Control-Allow-Origin', 'https://pruebas-react.castelancarpinteyro.com');
     let get="SELECT * from users";
     connection.query(get, function (error, results, fields){
         if(error) throw  res.json({
@@ -106,6 +104,6 @@ app.delete('/users/:id', (req,res)=>{
 })
 
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log("escuchando en el puerto 3000")
 })
