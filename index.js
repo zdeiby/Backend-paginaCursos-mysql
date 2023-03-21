@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors')
 app=express()
 const corsOptions = {
-  origin: 'https://pruebas-react.castelancarpinteyro.com/articles'
+  origin: 'https://pruebas-react.castelancarpinteyro.com'
 };
 
 app.use(cors(corsOptions));
@@ -39,6 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/users', (req,res)=>{
+  res.header('Access-Control-Allow-Origin', 'https://pruebas-react.castelancarpinteyro.com');
     let get="SELECT * from users";
     connection.query(get, function (error, results, fields){
         if(error) throw  res.json({
