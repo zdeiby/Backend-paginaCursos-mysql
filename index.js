@@ -4,7 +4,7 @@ const cors = require('cors');
 const routerApi = require('./routes')
 
 const app=express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 const whitelist = ['file:///C:/Users/deiby/Desktop/temp/conectionmysql/inde.html'];
 const options ={
   origin: (origin, callback) =>{
